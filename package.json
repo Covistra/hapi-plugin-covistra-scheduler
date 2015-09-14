@@ -1,6 +1,6 @@
 {
-  "name": "scheduler",
-  "version": "1.0.0",
+  "name": "covistra-scheduler",
+  "version": "0.1.0",
   "dependencies": {
     "bluebird": "^2.10.0",
     "later": "^1.1.9",
