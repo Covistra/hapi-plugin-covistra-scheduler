@@ -7,6 +7,6 @@
     "bluebird": "^2.10.0",
     "later": "^1.1.9",
     "lodash": "^3.10.1",
-    "redis-scheduler": "git@github.com:Covistra/redis-scheduler.git"
+    "redis-scheduler": "git+https://git@github.com/Covistra/redis-scheduler.git#0.9.4"
   }
 }
