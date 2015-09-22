@@ -41,8 +41,8 @@ exports.register = function (server, options, next) {
     scheduler.clients.scheduler.config("SET", "notify-keyspace-events", "Ex");
 
     // Expose a few methods to manage jobs
-    plugin.expose('schedule', scheduler.schedule.bind(scheduler));
-    plugin.expose('scheduleWorker', function(workerKey, expiration, jobKey) {
+    server.expose('schedule', scheduler.schedule.bind(scheduler));
+    server.expose('scheduleWorker', function(workerKey, expiration, jobKey) {
         jobKey = jobKey || _.uniqueId(workerKey);
         log.debug("Scheduling worker %s at %s (%s)", workerKey, expiration, jobKey);
         var shed;
@@ -61,16 +61,16 @@ exports.register = function (server, options, next) {
             return P.promisify(scheduler.schedule, scheduler)({key: jobKey, expire: expiration, handler: workers[workerKey]});
         }
     });
-    plugin.expose('registerWorker', function(workerKey, handler) {
+    server.expose('registerWorker', function(workerKey, handler) {
         log.debug("Register a new worker %s", workerKey);
         workers[workerKey] = handler;
     });
-    plugin.expose('addHandler', scheduler.addHandler.bind(scheduler));
-    plugin.expose('reschedule', scheduler.reschedule.bind(scheduler));
-    plugin.expose('cancel', scheduler.cancel.bind(scheduler));
+    server.expose('addHandler', scheduler.addHandler.bind(scheduler));
+    server.expose('reschedule', scheduler.reschedule.bind(scheduler));
+    server.expose('cancel', scheduler.cancel.bind(scheduler));
 
     // Register routes
-    Router.routes(plugin, __dirname, "./routes");
+    Router.routes(server, __dirname, "./routes");
 
     next();
 };
