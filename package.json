@@ -4,9 +4,9 @@
   "author": "joelgrenon@covistra.com",
   "license": "Apache V2",
   "dependencies": {
-    "bluebird": "^2.10.1",
-    "later": "^1.1.10",
+    "bluebird": "^2.10.2",
+    "later": "^1.2.0",
     "lodash": "^3.10.1",
-    "redis-scheduler": "git+https://git@github.com/Covistra/redis-scheduler.git#0.10.1"
+    "redis-scheduler": "git+https://git@github.com/Covistra/redis-scheduler.git#0.10.2"
   }
 }
