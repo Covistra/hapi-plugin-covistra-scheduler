@@ -1,6 +1,6 @@
 {
   "name": "covistra-scheduler",
-  "version": "0.2.5-pre",
+  "version": "0.2.5",
   "author": "joelgrenon@covistra.com",
   "license": "Apache V2",
   "dependencies": {
